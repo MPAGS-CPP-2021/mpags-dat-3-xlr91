@@ -7,6 +7,7 @@
 //and then implement constructor in the cpp 
 #include <string>
 #include <vector>
+#include "CipherMode.hpp"
 
 class CaesarCipher {
     public:
@@ -14,7 +15,7 @@ class CaesarCipher {
         explicit CaesarCipher(const std::string& cipherStringKey);
         
         
-        std::string applyCipher(std::string& inputText, bool encryptFlag); //basically copy over runcaesarcipher?
+        std::string applyCipher(std::string& inputText, CipherMode cipherMode); //basically copy over runcaesarcipher?
 
         
 

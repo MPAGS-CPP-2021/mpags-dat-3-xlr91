@@ -1,5 +1,3 @@
-
-
 #include "CaesarCipher.hpp"
 #include <iostream>
 
@@ -41,7 +39,7 @@ CaesarCipher::CaesarCipher(const std::string& cipherStringKey){
 
 }
 
-std::string CaesarCipher::applyCipher(std::string& inputText, bool encryptFlag){
+std::string CaesarCipher::applyCipher(std::string& inputText, CipherMode cipherMode){
     std::string outputText;
 
     const std::size_t alphabetSize{alphabet_.size()};
@@ -58,12 +56,23 @@ std::string CaesarCipher::applyCipher(std::string& inputText, bool encryptFlag){
                 // Apply the appropriate shift (depending on whether we're encrypting
                 // or decrypting) and determine the new character
                 // Can then break out of the loop over the alphabet
+
+                switch(cipherMode){
+                    case CipherMode::Encrypt:
+                        processedChar = alphabet_[(i + truncatedKey) % alphabetSize];
+                        break;
+                    case CipherMode::Decrypt:
+                        processedChar = alphabet_[(i + alphabetSize - truncatedKey) % alphabetSize];
+                        break;
+                }   
+                /*
                 if (encryptFlag) {
                     processedChar = alphabet_[(i + truncatedKey) % alphabetSize];
                 } else {
                     processedChar = alphabet_[(i + alphabetSize - truncatedKey) %
                                              alphabetSize];
                 }
+                */
                 break;
             }
         }

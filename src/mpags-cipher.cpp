@@ -2,6 +2,7 @@
 #include "RunCaesarCipher.hpp"
 #include "TransformChar.hpp"
 #include "CaesarCipher.hpp"
+#include "CipherMode.hpp"
 
 #include <cctype>
 #include <fstream>
@@ -21,7 +22,7 @@ int main(int argc, char* argv[])
         "",
         "",
         "",
-        true
+        CipherMode::Encrypt
     };
     /*
     bool helpRequested{false};
@@ -142,10 +143,10 @@ int main(int argc, char* argv[])
     }
     */
 
-
+    
     // Run the Caesar cipher (using the specified key and encrypt/decrypt flag) on the input text
     //std::string outputText{runCaesarCipher(inputText, cipher.key_, clps.encrypt)};
-    std::string outputText{cipher.applyCipher(inputText, clps.encrypt)};
+    std::string outputText{cipher.applyCipher(inputText, clps.programCipherMode)};
 
     // Output the encrypted/decrypted text to stdout/file
     if (!clps.outputFile.empty()) {
