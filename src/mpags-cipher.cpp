@@ -1,6 +1,7 @@
 #include "ProcessCommandLine.hpp"
 #include "RunCaesarCipher.hpp"
 #include "TransformChar.hpp"
+#include "CaesarCipher.hpp"
 
 #include <cctype>
 #include <fstream>
@@ -111,6 +112,10 @@ int main(int argc, char* argv[])
 
     // We have the key as a string, but the Caesar cipher needs an unsigned long, so we first need to convert it
     // We default to having a key of 0, i.e. no encryption, if no key was provided on the command line
+
+    CaesarCipher cipher{clps.cipherKey};
+
+    /*
     std::size_t caesarKey{0};
     if (!clps.cipherKey.empty()) {
         // Before doing the conversion we should check that the string contains a
@@ -135,9 +140,11 @@ int main(int argc, char* argv[])
         }
         caesarKey = std::stoul(clps.cipherKey);
     }
+    */
+
 
     // Run the Caesar cipher (using the specified key and encrypt/decrypt flag) on the input text
-    std::string outputText{runCaesarCipher(inputText, caesarKey, clps.encrypt)};
+    std::string outputText{runCaesarCipher(inputText, cipher.key, clps.encrypt)};
 
     // Output the encrypted/decrypted text to stdout/file
     if (!clps.outputFile.empty()) {
