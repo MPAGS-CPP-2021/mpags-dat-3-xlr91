@@ -39,5 +39,6 @@
 *.out
 *.app
 
-#personal docs (imported pdfs here so it can be viewed in vscode directly)
+#personal docs and vscode settings (imported pdfs here so it can be viewed in vscode directly)
 docs/*
+.vscode/settings.json
