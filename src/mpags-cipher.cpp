@@ -144,7 +144,8 @@ int main(int argc, char* argv[])
 
 
     // Run the Caesar cipher (using the specified key and encrypt/decrypt flag) on the input text
-    std::string outputText{runCaesarCipher(inputText, cipher.key, clps.encrypt)};
+    //std::string outputText{runCaesarCipher(inputText, cipher.key_, clps.encrypt)};
+    std::string outputText{cipher.applyCipher(inputText, clps.encrypt)};
 
     // Output the encrypted/decrypted text to stdout/file
     if (!clps.outputFile.empty()) {
