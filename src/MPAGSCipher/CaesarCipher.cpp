@@ -39,6 +39,11 @@ CaesarCipher::CaesarCipher(const std::string& cipherStringKey){
 
 }
 
+
+std::size_t CaesarCipher::showKey(){
+    return key_;
+}
+
 std::string CaesarCipher::applyCipher(std::string& inputText, CipherMode cipherMode){
     std::string outputText;
 

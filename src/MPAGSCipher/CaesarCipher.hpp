@@ -16,6 +16,7 @@ class CaesarCipher {
         
         
         std::string applyCipher(std::string& inputText, CipherMode cipherMode); //basically copy over runcaesarcipher?
+        std::size_t showKey();
 
         
 
