@@ -1,6 +1,9 @@
 # mpags-cipher
 A simple command line tool for encrypting/decrypting text using classical ciphers
 
+## Homework note:
+I have added some simple tests for ProcessCommandLine and CaesarCipher, as I think those are the biggest bulks of the tests. Wasn't able to add more tests due to time constraints, sorry about that
+
 ## Authors
 Thomas Latham, Ben Morgan, Mark Slater, Matt Williams, Luke Kreczko
 
